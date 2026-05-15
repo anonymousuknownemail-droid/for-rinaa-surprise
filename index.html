@@ -13,13 +13,20 @@
         }
 
         body {
-            background: linear-gradient(135deg, #000000, #1a001a, #2d0030);
-            color: #f5f5f5;
-            text-align: center;
-            overflow-x: hidden;
-            font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
-            min-height: 100vh;
-        }
+    /* 1. GANTI background.jpg dengan nama file foto kamu (misal: rina.jpg) */
+    background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('background.jpg');
+    
+    background-size: cover;           /* Biar gambar menutupi seluruh layar */
+    background-position: center;        /* Biar gambar fokus di tengah */
+    background-repeat: no-repeat;
+    background-attachment: fixed;       /* Biar pas di-scroll gambarnya diem (cakep nih) */
+    color: #f5f5f5;
+    text-align: center;
+    overflow-x: hidden;
+    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+    transition: background 0.8s ease;
+}
 
         /* BINTANG STATIS */
         body::before {
@@ -80,6 +87,23 @@
         }
         #cinematic.active { opacity: 1; visibility: visible; }
 
+        /* Efek Layar Gelap Total untuk Transisi */
+#blackout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 50; /* Di atas segalanya */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease;
+}
+#blackout.active {
+    opacity: 1;
+    visibility: visible;
+}
         .fadeText {
             opacity: 0;
             font-size: 1.25rem;
@@ -267,6 +291,8 @@
 </head>
 <body>
 
+<div id="blackout"></div>
+
 <div id="hearts"></div>
 
 <div id="startScreen" class="screen">
@@ -328,17 +354,17 @@
                 <img src="foto rina tampil.jpg" alt="Kenangan 9" loading="lazy">
                 <p>klo ini foto pas kamu abis tampil di hari guruu ( padahal awal nya bilang nya bukan tampil tapi jadi tim perkap 🤪)</p>
             </div>
-            <div class="card" data-caption="nah klo ini mah hati hati ada anomalii wkwkwk😵">
+            <div class="card" data-caption="nah klo ini mah hati hati ada anomalii wkwkwk 😵">
                 <img src="foto anomali.jpg" alt="Kenangan 10" loading="lazy">
-                <p>nah klo ini mah hati hati ada anomalii wkwkwk😵</p>
+                <p>nah klo ini mah hati hati ada anomalii wkwkwk 😵</p>
             </div>
-             <div class="card" data-caption="aduuhh yang ini lagi atraksii😭">
+             <div class="card" data-caption="aduuhh yang ini lagi atraksii 😭">
                 <img src="foto kayang.png" alt="Kenangan 11" loading="lazy">
-                <p>aduuhh yang ini lagi atraksii😭</p>
+                <p>aduuhh yang ini lagi atraksii 😭</p>
             </div>
-            <div class="card" data-caption="klo yang ini gatau kenapa dehh yaa awkkwowko🤣🥲">
+            <div class="card" data-caption="klo yang ini gatau kenapa dehh yaa awkkwowko 🤣🥲">
                 <img src="foto gatau.jpg" alt="Kenangan 12" loading="lazy">
-                <p>klo yang ini gatau kenapa dehh yaa awkkwowko🤣🥲</p>
+                <p>klo yang ini gatau kenapa dehh yaa awkkwowko 🤣🥲</p>
             </div>
             <div class="card" data-caption="emm kayanya ini udah ngantuk bangett yaa ehehehe 😴😪">
                 <img src="foto bobo.png" alt="Kenangan 13" loading="lazy">
@@ -348,11 +374,11 @@
                 <img src="foto rina.jpg" alt="Kenangan 14" loading="lazy">
                 <p>nahini ada oraang cantik bangeett tiba tiba muncul di galeri hp akuu 😘</p>
             </div>
-            <div class="card" data-caption="nahh, klo yang ini tu muncul nya di laptop akuu ihihii, dan juga samaa orang nya cantik jugaaa😍">
+            <div class="card" data-caption="nahh, klo yang ini tu muncul nya di laptop akuu ihihii, dan juga samaa orang nya cantik jugaaa 😍">
                 <img src="foto rina cantik.jpg" alt="Kenangan 15" loading="lazy">
-                <p>nahh, klo yang ini tu muncul nya di laptop akuu ihihii, dan juga samaa orang nya cantik jugaaa😍</p>
+                <p>nahh, klo yang ini tu muncul nya di laptop akuu ihihii, dan juga samaa orang nya cantik jugaaa 😍</p>
             </div>
-            <div class="card" data-caption="klo yang inii foto pa kita pertama kali jalaan ke ggp 🤩">
+            <div class="card" data-caption="klo yang inii foto pas kita pertama kali jalaan ke ggp 🤩">
                 <img src="foto pertama kali ke ggp.jpg" alt="Kenangan 15" loading="lazy">
                 <p>klo yang inii foto pa kita pertama kali jalaan ke ggp 🤩</p>
             </div>
@@ -368,12 +394,12 @@
     </div>
 
     <div id="ending">
-        <p class="line">🌸 terimakasi yaa sayangkuu kamu masi bisa bertahan sampai sekaraang 🌸</p>
-        <p class="line">terimakasi jugaa udah bisa hadir di hidup akuuu, udah jadi tempat aku ceritaaa, jadi tempat aku pulaaang</p>
-        <p class="line">🏠 dan jadi orang yang selalu bikin hidup aku berwarnaaa</p>
-        <p class="line">semogaaa kita bisa bertahan terus yaa sampai selamaanyaa🏡</p>
-        <p class="line">🌙 dan kita bisa ngehadapin masalah yang ada bersamaa samaaa</p>
-        <p class="line">satu hal yang aku pengen bangett kamu tauuu</p>
+        <p class="line">🌸 Terimakasi yaa sayangkuu kamu masi bisa bertahan sampai sekaraang 🌸</p>
+        <p class="line">Terimakasi jugaa udah bisa hadir di hidup akuuu, udah jadi tempat aku ceritaaa, jadi tempat aku pulaaang</p>
+        <p class="line">🏠 Dan jadi orang yang selalu bikin hidup aku berwarnaaa</p>
+        <p class="line">Semogaaa kita bisa bertahan terus yaa sampai selamaanyaa 🏡</p>
+        <p class="line">🌙 Dan kita bisa ngehadapin masalah yang ada bersamaa samaaa</p>
+        <p class="line">Satu hal yang aku pengen bangett kamu tauuu 🥹</p>
         <h1 class="final">✨ I LOVE YOUU SOOO MUCHH ❤️✨</h1>
     </div>
     <div class="credit">Made With Love From Your Boyfriend 🌹</div>
@@ -409,7 +435,7 @@
         const c3 = document.getElementById('c3');
         
         // TYPING EFFECT - dengan callback selesai
-        const fullText = "Ihihihii cieee, sekarang ada yang makin tuwaaaa 💖\n\nAkhirnya sekarang umur kamu udah sama kaya akuu.. 61 tahuun ehehe 🤭\n\nPertama-tamaa, aku mau minta maaf duluu yaa sayangku.. Karena aku gabisa ada disamping kamu disaat ulang tahun kamuuu 🥺\nAku tau pasti kamu sedihh, dan jujur aku juga ngerasaa sediihh\nTapi ywdaa aku bikin ini khusus buat kamuuu, biar sedikit bisa ngurangin rasa sedih kamu hari ini dan bisa bikin kamu seneeeng 🤍\n\nWalaupun sekarang aku gabisa ada disamping kamuu, semoga kamu tetep bisa ngerasain seberapa spesial nya hari ini yaaa\n\nSekali lagii happy birthdayy yaa sayaangkuu 🎂✨\nSemoga semua yang kamu harapin bisa terwujudd dan semua hal baik dateng terus buat kamuu, dan doain ajaa yaa semogaa nanti diulang tahun kamu yang selanjutnyaa kita bisa ngerayain bareng barengg yaaa 💫\n\nNote: Dibawah aku nyantumin beberapa foto foto kita berduaa, ini jawaban klo kamu suka nanyaa kenapa aku suka nyimpen foto-foto kamuu ato kita berduaa\nKarna aku mau foto-foto kita bisa menjadi kenangan yang selalu bisa kita inget teruss dan bisa kita liat teruuss ihihihii 😝";
+        const fullText = "Ihihihii cieee, sekarang ada yang makin tuwaaaa 💖\n\nAkhirnya sekarang umur kamu udah sama kaya akuu.. 61 tahuun ehehe 🤭\n\nPertama-tamaa, aku mau minta maaf duluu yaa sayangku.. Karena aku gabisa ada disamping kamu disaat ulang tahun kamuuu 🥺\nAku tau pasti kamu sedihh, dan jujur aku juga ngerasaa sediihh\nTapi ywdaa aku bikin ini khusus buat kamuuu, biar sedikit bisa ngurangin rasa sedih kamu hari ini dan bisa bikin kamu seneeeng 🤍\n\nWalaupun sekarang aku gabisa ada disamping kamuu, semoga kamu tetep bisa ngerasain seberapa spesial nya hari ini yaaa\n\nSekali lagii happy birthdayy yaa sayaangkuu 🎂✨\nSemoga semua yang kamu harapin bisa terwujudd dan semua hal baik dateng terus buat kamuu, dan doain ajaa yaa semogaa nanti diulang tahun kamu yang selanjutnyaa kita bisa ngerayain bareng barengg yaaa 💫\n\nNote: Dibawah aku nyantumin beberapa foto foto kita berduaa, ini jawaban klo kamu suka nanyaa kenapa aku suka nyimpen foto-foto kamuu ato kita berduaa\nKarna aku mau foto-foto kita bisa menjadi kenangan yang selalu bisa kita inget teruss dan bisa kita liat teruuss ihihihii 😆";
         let typingIndex = 0;
         const typingEl = document.getElementById('typing');
         let typingActive = false;
@@ -502,41 +528,51 @@
         let isCinematicStarted = false;
         
         function showCinematicAndContinue() {
-            if(isCinematicStarted) return;
-            isCinematicStarted = true;
-            cinematicDiv.classList.add('active');
-            startMusic();
+    if(isCinematicStarted) return;
+    isCinematicStarted = true;
+    cinematicDiv.classList.add('active');
+    startMusic();
+    
+    // Urutan teks cinematic muncul
+    setTimeout(() => { if(c1) c1.style.opacity = "1"; }, 5000);
+    setTimeout(() => { if(c2) c2.style.opacity = "1"; }, 10000);
+    setTimeout(() => { if(c3) c3.style.opacity = "1"; }, 15000);
+    
+    // --- MULAI EFEK TRANSISI GELAP ---
+    setTimeout(() => {
+        const blackout = document.getElementById('blackout');
+        blackout.classList.add('active'); // Layar jadi hitam total
+
+        setTimeout(() => {
+            // Sembunyikan cinematic saat layar gelap
+            cinematicDiv.style.display = "none";
             
-            setTimeout(() => { if(c1) c1.style.opacity = "1"; }, 5000),
-            setTimeout(() => { if(c2) c2.style.opacity = "1"; }, 10000);
-            setTimeout(() => { if(c3) c3.style.opacity = "1"; }, 15000);
-            
+            // Siapkan Main Div
+            mainDiv.style.display = "block";
+            mainDiv.style.opacity = "0"; // Masih transparan
+            document.body.style.overflow = "auto";
+
+            // Layar hitam mulai pudar, menampilkan Main Div
             setTimeout(() => {
-                cinematicDiv.classList.remove('active');
-                cinematicDiv.style.visibility = "hidden";
-                mainDiv.style.display = "block";
-                document.body.style.overflow = "auto";
+                blackout.classList.remove('active');
+                mainDiv.style.opacity = "1";
                 
-                // Start typing
-                typingEl.innerHTML = "";
-                typingIndex = 0;
-                typingActive = true;
-                
-                // SET CALLBACK: setelah typing selesai, tampilkan gallery
-                onTypingComplete = showGalleryAfterTyping;
-                
-                // Mulai ngetik
-                typeWriter();
-                
-                // Heart rain tetap jalan
-                startHeartRain();
-                
-                // Ending observer tetap berjalan
+                // Mulai ketikan setelah layar terang kembali
                 setTimeout(() => {
+                    typingEl.innerHTML = "";
+                    typingIndex = 0;
+                    typingActive = true;
+                    onTypingComplete = showGalleryAfterTyping;
+                    typeWriter();
+                    startHeartRain();
                     checkEnding();
-                }, 200);
-            }, 18000);
-        }
+                }, 800);
+            }, 900); // Durasi layar menetap di hitam (1 detik)
+
+        }, 1100); // Tunggu sampai layar benar-benar hitam baru ganti konten
+
+    }, 17000); // Total waktu cinematic sebelum transisi
+}
         
         function onStartClick() {
             startScreenDiv.style.opacity = "0";
